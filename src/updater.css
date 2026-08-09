@@ -1,0 +1,7 @@
+.update-panel{position:fixed;right:26px;bottom:26px;width:390px;padding:18px 20px;border-radius:13px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 36px rgba(24,36,58,.22);z-index:20}
+.update-panel[hidden]{display:none}
+.update-title{font-size:15px;font-weight:800;margin-bottom:9px}
+.update-row{display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:12px;margin-bottom:10px}
+.update-row strong{color:var(--blue);font-size:13px}
+.progress-track{height:10px;border-radius:999px;background:#e8edf6;overflow:hidden}
+.progress-bar{width:0;height:100%;border-radius:999px;background:linear-gradient(90deg,#3157d9,#6587ff);transition:width .2s ease}

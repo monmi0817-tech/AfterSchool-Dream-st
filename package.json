@@ -1,0 +1,48 @@
+{
+  "name": "afterschool-application-builder",
+  "version": "1.0.0",
+  "description": "방과후 프로그램 신청 양식 자동 작성 데스크톱 앱",
+  "main": "main.js",
+  "author": "방과후도우미",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.6.2",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "kr.afterschoolhelper.applicationbuilder",
+    "productName": "방과후 신청양식 자동작성",
+    "asar": true,
+    "files": ["main.js", "preload.js", "src/**/*", "assets/**/*", "package.json"],
+    "extraMetadata": { "main": "main.js" },
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "방과후_신청양식_자동작성_Setup_v${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true
+    },
+    "portable": { "artifactName": "방과후_신청양식_자동작성_포터블_v${version}.${ext}" },
+    "publish": [{
+      "provider": "github",
+      "owner": "monmi0817-tech",
+      "repo": "AfterSchool-Dream-st",
+      "releaseType": "release"
+    }]
+  }
+}
