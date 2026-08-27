@@ -27,7 +27,7 @@
     "extraMetadata": { "main": "main.js" },
     "win": {
       "target": ["nsis"],
-      "artifactName": "방과후_신청양식_자동작성_Setup_v${version}.${ext}"
+      "artifactName": "afterschool-application-builder-setup-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
