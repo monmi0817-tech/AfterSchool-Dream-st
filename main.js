@@ -189,14 +189,14 @@ ipcMain.handle('export-result', async (_, rows) => {
   const template = path.join(__dirname, 'assets', 'application-template.xlsx');
   const wb = new ExcelJS.Workbook(); await wb.xlsx.readFile(template); const ws = wb.worksheets[0];
   for (const table of ws.getTables()) ws.removeTable(table.name);
-  const outputStyles = Array.from({ length: 5 }, (_, index) => JSON.parse(JSON.stringify(ws.getRow(4).getCell(index + 1).style || {})));
+  const outputStyles = Array.from({ length: 8 }, (_, index) => JSON.parse(JSON.stringify(ws.getRow(4).getCell(index + 1).style || {})));
   for (let r = 4; r <= ws.rowCount; r++) ws.getRow(r).values = [];
   rows.forEach((item, index) => {
-    const row = ws.getRow(index + 4); row.values = [index + 1, item.programCode, item.programName, item.studentCode, item.studentName];
-    for (let c = 1; c <= 5; c++) {
+    const row = ws.getRow(index + 4); row.values = [index + 1, item.programCode, item.programName, item.studentCode, item.grade, item.classNo, item.number, item.studentName];
+    for (let c = 1; c <= 8; c++) {
       row.getCell(c).style = outputStyles[c - 1];
       row.getCell(c).font = { name: '맑은 고딕', size: 11 };
-      row.getCell(c).alignment = { vertical: 'center', horizontal: c === 1 ? 'center' : 'left' };
+      row.getCell(c).alignment = { vertical: 'center', horizontal: [1,5,6,7].includes(c) ? 'center' : 'left' };
       row.getCell(c).border = { top:{style:'thin'}, left:{style:'thin'}, bottom:{style:'thin'}, right:{style:'thin'} };
     }
   });

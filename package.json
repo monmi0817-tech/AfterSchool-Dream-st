@@ -1,6 +1,6 @@
 {
   "name": "afterschool-application-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "방과후 프로그램 신청 양식 자동 작성 데스크톱 앱",
   "main": "main.js",
   "author": "방과후도우미",

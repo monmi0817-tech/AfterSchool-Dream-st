@@ -1,0 +1,8 @@
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-scroll th,
+.table-scroll td {
+  white-space: nowrap;
+}
